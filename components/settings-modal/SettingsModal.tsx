@@ -13,6 +13,12 @@ interface SettingsModalProps {
   onClose: () => void;
 }
 
+const LANGUAGE_LABELS: Record<string, string> = {
+  en: "English",
+  "pt-BR": "Português",
+  es: "Español",
+};
+
 /**
  * SettingsModal
  *
@@ -136,7 +142,7 @@ const handleLanguageChange = (lang: string) => {
                       : "bg-surface-muted border-surface-border text-[var(--text-secondary)] hover:border-brand-400/40 hover:text-[var(--text-primary)]"
                   }`}
                 >
-                  {lang === "pt-BR" ? "Português" : "English"}
+                  {LANGUAGE_LABELS[lang] ?? lang}
                 </button>
               ))}
             </div>

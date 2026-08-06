@@ -2,12 +2,19 @@ import i18n, { createInstance, type i18n as I18n } from "i18next";
 import { initReactI18next } from "react-i18next";
 import ptBR from "@/locales/pt-BR/translation.json";
 import en from "@/locales/en/translation.json";
+import es from "@/locales/es/translation.json";
 import {
   DEFAULT_LANGUAGE,
   isSupportedLanguage,
 } from "@/i18n/languages";
 
 export * from "@/i18n/languages";
+
+const resources = {
+  "pt-BR": { translation: ptBR },
+  en: { translation: en },
+  es: { translation: es },
+} as const;
 
 /**
  * Language-driven i18n.
@@ -21,10 +28,7 @@ export * from "@/i18n/languages";
  * outside of the I18nextProvider (e.g. future 404 pages).
  */
 i18n.use(initReactI18next).init({
-  resources: {
-    "pt-BR": { translation: ptBR },
-    en: { translation: en },
-  },
+  resources,
   lng: DEFAULT_LANGUAGE,
   fallbackLng: DEFAULT_LANGUAGE,
   interpolation: {
@@ -48,10 +52,7 @@ export function getI18nInstance(language: string): I18n {
   if (!instance) {
     instance = createInstance().use(initReactI18next);
     instance.init({
-      resources: {
-        "pt-BR": { translation: ptBR },
-        en: { translation: en },
-      },
+      resources,
       lng: isSupportedLanguage(language) ? language : DEFAULT_LANGUAGE,
       fallbackLng: DEFAULT_LANGUAGE,
       interpolation: {

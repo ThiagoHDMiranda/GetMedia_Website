@@ -31,6 +31,11 @@ const metadataByLanguage: Record<string, Metadata> = {
     description:
       "GetMedia é um downloader gratuito e de código aberto de vídeos e áudios para Windows, baseado em yt-dlp e FFmpeg.",
   },
+  es: {
+    title: "GetMedia — Descarga vídeos y audio",
+    description:
+      "GetMedia es un descargador gratuito y de código abierto de vídeos y audio para Windows, basado en yt-dlp y FFmpeg.",
+  },
 };
 
 export function generateStaticParams() {

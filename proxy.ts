@@ -34,13 +34,22 @@ export function proxy(request: NextRequest) {
   if (saved && SUPPORTED_LANGUAGES.includes(saved as Language)) {
     language = saved as Language;
   } else {
-    const acceptLanguage = request.headers.get("accept-language") ?? "";
-    if (acceptLanguage.trim().toLowerCase().startsWith("pt")) {
+    const acceptLanguage = acceptLanguageValue(
+      request.headers.get("accept-language")
+    );
+    if (acceptLanguage.startsWith("pt")) {
       language = "pt-BR";
+    } else if (acceptLanguage.startsWith("es")) {
+      language = "es";
     }
   }
 
   return NextResponse.redirect(new URL(`/${language}`, request.url));
+}
+
+/** Returns the normalized primary Accept-Language value (e.g. "pt", "es", "en"). */
+function acceptLanguageValue(header: string | null): string {
+  return (header ?? "").split(",")[0]?.trim().toLowerCase() ?? "";
 }
 
 export const config = {
