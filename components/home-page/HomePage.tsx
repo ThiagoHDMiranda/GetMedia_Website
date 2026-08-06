@@ -26,8 +26,8 @@ export function HomePage() {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-brand-400/[0.08] blur-3xl animate-pulse-slow animate-delay-200" />
       </div>
       <header className="w-full absolute top-6 place-self-center flex items-center justify-center gap-2">
-        <Image alt="GetMedia Logo" src="/getmedia_icon_512x512.png" className="w-auto h-10" width={50} height={50} />
-        <Image alt="GetMedia Icon" src="/getmedia.png" className="w-auto h-10" width={100} height={50}/>
+        <Image alt="GetMedia Logo" src="/getmedia_icon_512x512.png" className="w-auto h-10" width={40} height={40} />
+        <Image alt="GetMedia Icon" src="/getmedia.png" className="w-auto h-10" width={70} height={40} />
       </header>
       <div className="mx-auto max-w-5xl px-4 py-12 space-y-12 relative">
         {/* Top-bar buttons — fixed right cluster (History + About + Settings) */}

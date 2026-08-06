@@ -59,8 +59,8 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
         <div className="px-6 py-6 space-y-5">
           {/* App identity */}
           <div className="w-full place-self-center flex items-center justify-center gap-2 mb-3">
-            <Image alt="GetMedia Logo" src="/getmedia_icon_512x512.png" className="w-auto h-10" width={50} height={50} />
-            <Image alt="GetMedia Icon" src="/getmedia.png" className="w-auto h-10" width={100} height={50}/>
+            <Image alt="GetMedia Logo" src="/getmedia_icon_512x512.png" className="w-auto h-10" width={40} height={40} />
+            <Image alt="GetMedia Icon" src="/getmedia.png" className="w-auto h-10" width={70} height={40}/>
           </div>
 
           {/* Description */}

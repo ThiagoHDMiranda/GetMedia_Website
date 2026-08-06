@@ -19,8 +19,8 @@ export function Footer() {
   return (
     <footer className="border-t border-surface-border pt-6 text-center space-y-3 animate-fade-in">
       <div className="w-full place-self-center flex items-center justify-center gap-2">
-        <Image alt="GetMedia Logo" src="/getmedia_icon_512x512.png" className="w-auto h-6" width={50} height={50} />
-        <Image alt="GetMedia Icon" src="/getmedia.png" className="w-auto h-6" width={100} height={50}/>
+        <Image alt="GetMedia Logo" src="/getmedia_icon_512x512.png" className="w-auto h-6" width={25} height={25} />
+        <Image alt="GetMedia Icon" src="/getmedia.png" className="w-auto h-6" width={125} height={25}/>
       </div>
       {APP_INFO.description && (
         <p className="text-xs text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
