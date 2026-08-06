@@ -1,26 +1,133 @@
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties ── */
+/* Dark theme is the default (:root). Light theme is applied via [data-theme="light"]. */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --surface:        #0d0e1a;
+  --surface-card:   #13152a;
+  --surface-border: #1e2240;
+  --surface-muted:  #252847;
+  --brand-primary:  #005ece;
+  --brand-secondary:#8298b0;
+  --text-gradient:  #0a5cc780;
+  /* --text-primary:   #f0f2ff; */
+  --text-primary:   #8298b0;
+  --text-secondary: #8298b0;
+  --text-input:     #ffffffcc;
+  --success:        #22d3a5;
+  --warning:        #f59e0b;
+  --error:          #f43f5e;
+
+  /* Overlay used by modal backdrops */
+  --overlay:        rgba(0, 0, 0, 0.70);
+
+  /* Glass surfaces (alpha-driven for backdrop blur) */
+  --glass-bg:       rgba(255, 255, 255, 0.04);
+  --glass-border:   rgba(255, 255, 255, 0.07);
+  --glass-hover:    rgba(255, 255, 255, 0.10);
+
+  /* Shimmer skeleton */
+  --shimmer:        rgba(255, 255, 255, 0.06);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root[data-theme="light"] {
+  --surface:        #f4f6fb;
+  --surface-card:   #ffffff;
+  --surface-border: #d9deea;
+  --surface-muted:  #e7eaf3;
+  --brand-primary:  #0a5cc8;
+  --brand-secondary:#52677e;
+  --text-gradient:  #0a5cc780;
+  /* --text-primary:   #1c2440; */
+  --text-primary:   #8298b0;
+  /* --text-secondary: #5c6a86; */
+  --text-secondary: #8298b0;
+  --text-input:     #000000cc;
+  --success:        #15a07a;
+  --warning:        #c97500;
+  --error:          #d8374c;
+
+  --overlay:        rgba(30, 36, 64, 0.45);
+
+  --glass-bg:       rgba(255, 255, 255, 0.72);
+  --glass-border:   rgba(30, 36, 64, 0.10);
+  --glass-hover:    rgba(30, 36, 64, 0.06);
+
+  --shimmer:        rgba(30, 36, 64, 0.06);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(0, 94, 206, 0.4);
+  color: #fff;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--surface-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--brand-primary); }
+
+/* ── Utility layer ── */
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .shimmer-box {
+    background: var(--shimmer);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--text-gradient) 50%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-brand {
+    box-shadow: 0 0 24px rgba(0, 94, 206, 0.35),
+                0 0 48px rgba(0, 94, 206, 0.15);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px rgba(34, 211, 165, 0.3);
+  }
+
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-300 { animation-delay: 0.3s; }
+
+  
 }

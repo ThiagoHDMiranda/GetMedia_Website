@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "titleLine1": "Download videos and audio",
+    "titleLine2": "hassle-free",
+    "subtitleSupport": "Support for",
+    "subtitleOthers": "and other sites.",
+    "subtitleQuality": "Maximum quality, your choice of format.",
+    "statSites": "Supported sites",
+    "statFormats": "Formats",
+    "statFree": "100% Free"
+  },
+  "settings": {
+    "title": "Settings",
+    "closeAria": "Close settings",
+    "themeLabel": "Theme",
+    "themeDark": "Dark",
+    "themeLight": "Light",
+    "languageLabel": "Language"
+  },
+  "download": {
+    "sectionAria": "Download for Windows",
+    "sectionTitle": "Download for Windows",
+    "sectionDescription": "Fast, free, and hassle-free. Download the latest release of GetMedia for Windows.",
+    "downloadBtn": "Download",
+    "releaseInfo": "Latest: {{version}} · {{size}}",
+    "latestNote": "Direct download of the latest release"
+  },
+  "about": {
+    "title": "About",
+    "closeAria": "Close about",
+    "description": "Download videos and audio from YouTube and other sites — fast, free, and hassle-free.",
+    "author": "Author",
+    "license": "License",
+    "repo": "GitHub Repository",
+    "poweredBy": "Powered by yt-dlp"
+  },
+  "toast": {
+    "close": "Close notification",
+    "error": "Error",
+    "success": "Success",
+    "warn": "Warning"
+  }
+}
