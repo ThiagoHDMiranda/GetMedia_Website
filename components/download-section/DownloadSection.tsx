@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -75,7 +75,10 @@ export function DownloadSection() {
           const res = await fetch(LATEST_RELEASE_API_URL);
           if (!res.ok) return;
 
-          const data = (await res.json()) as Omit<LatestReleaseInfo, "fetchedAt">;
+          const data = (await res.json()) as Omit<
+            LatestReleaseInfo,
+            "fetchedAt"
+          >;
           if (
             typeof data.url !== "string" ||
             !data.url.startsWith(`${REPO_URL}/`) ||
@@ -133,12 +136,10 @@ export function DownloadSection() {
             hover:from-brand-500 hover:to-brand-400
             text-white/80 shadow-lg shadow-brand-900/30
             hover:shadow-brand-600/40 hover:scale-[1.02] active:scale-[0.98]
-            transition-all duration-200 ease-out"
+            transition-all duration-300 ease-out"
         >
-          
           {isChecking ? (
-            <div className="w-4 h-4 border-b border-l border-t border-white/80 rounded-full animate-spin">
-            </div>
+            <div className="w-4 h-4 border-b border-l border-t border-white/80 rounded-full animate-spin"></div>
           ) : (
             <Download className="w-5 h-5" />
           )}
