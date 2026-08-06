@@ -1,5 +1,5 @@
 const DEFAULT_SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://thiagohdmiranda.github.io/GetMedia_Website";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://getmedia-app.vercel.app";
 
 /** Absolute site URL used to build full URLs in metadata (OG/Twitter). */
 export function getSiteUrl(): string {
