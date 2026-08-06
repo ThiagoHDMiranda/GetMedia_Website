@@ -62,7 +62,7 @@ export function HomePage() {
           </button>
         </div>
         <HeroSection />
-        {/* <DownloadSection/> */}
+        <DownloadSection />
         <Footer />
       </div>
       {/* Settings modal */}
