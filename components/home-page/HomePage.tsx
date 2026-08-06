@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -13,7 +13,10 @@ import Image from "next/image";
 
 export function HomePage() {
   const { t } = useTranslation();
-  const [toast, setToast] = useState<{ type: "errorType" | "warnType" | "successType"; message: string } | null>(null);
+  const [toast, setToast] = useState<{
+    type: "errorType" | "warnType" | "successType";
+    message: string;
+  } | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
 
@@ -26,13 +29,24 @@ export function HomePage() {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-brand-400/[0.08] blur-3xl animate-pulse-slow animate-delay-200" />
       </div>
       <header className="w-full absolute top-6 place-self-center flex items-center justify-center gap-2">
-        <Image alt="GetMedia Logo" src="/getmedia_icon_512x512.png" className="w-auto h-10" width={40} height={40} />
-        <Image alt="GetMedia Icon" src="/getmedia.png" className="w-auto h-10" width={70} height={40} />
+        <Image
+          alt="GetMedia Logo"
+          src="/getmedia_icon_512x512.png"
+          className="w-auto h-10"
+          width={40}
+          height={40}
+        />
+        <Image
+          alt="GetMedia Icon"
+          src="/getmedia.png"
+          className="w-auto h-10"
+          width={205}
+          height={40}
+        />
       </header>
       <div className="mx-auto max-w-5xl px-4 py-12 space-y-12 relative">
         {/* Top-bar buttons — fixed right cluster (History + About + Settings) */}
         <div className="fixed top-6 right-6 z-40 flex items-center gap-2">
-
           {/* About button */}
           <button
             id="about-btn"
@@ -66,7 +80,10 @@ export function HomePage() {
         <Footer />
       </div>
       {/* Settings modal */}
-      <SettingsModal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
+      <SettingsModal
+        isOpen={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+      />
       {/* About modal */}
       <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
       {/* Toast */}
