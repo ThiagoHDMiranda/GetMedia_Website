@@ -114,16 +114,13 @@ export function DownloadSection() {
 
   return (
     <section
-      className="glass rounded-2xl p-6 sm:p-8 space-y-6 animate-slide-up"
+      className="glass rounded-2xl p-6 sm:p-8 space-y-2 animate-slide-up"
       aria-label={t("download.sectionAria")}
     >
       <div className="text-center space-y-2">
         <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
           {t("download.sectionTitle")}
         </h2>
-        <p className="text-sm sm:text-base text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed text-balance">
-          {t("download.sectionDescription")}
-        </p>
       </div>
 
       <div className="flex flex-col items-center justify-center pt-2">

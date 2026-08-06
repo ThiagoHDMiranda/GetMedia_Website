@@ -20,7 +20,6 @@
   "download": {
     "sectionAria": "Descargar para Windows",
     "sectionTitle": "Descarga para Windows",
-    "sectionDescription": "Rápido, gratuito y sin complicaciones. Descarga la última versión de GetMedia para Windows.",
     "downloadBtn": "Descargar",
     "releaseInfo": "Última: {{version}} · {{size}}",
     "latestNote": "Descarga directa de la última versión"
