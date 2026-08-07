@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { SUPPORTED_LANGUAGES, isSupportedLanguage } from "@/i18n/languages";
 import { getSiteUrl } from "@/lib/site-url";
+import { APP_INFO } from "@/lib/app-info";
 import { I18nProvider } from "@/components/i18n-provider/I18nProvider";
 import "../globals.css";
 
@@ -31,23 +32,28 @@ interface LanguageMetadata {
 
 const metadataByLanguage: Record<string, LanguageMetadata> = {
   en: {
-    title: "GetMedia — Download videos and audio",
+    title: "GetMedia — Download videos and audio for Windows for free",
     description:
-      "GetMedia is a free, open-source video and audio downloader for Windows, built on yt-dlp and FFmpeg.",
+      "GetMedia is a free and open-source video and audio downloader for Windows, built on yt-dlp and FFmpeg. Download videos and audio from YouTube and other sites.",
     ogLocale: "en_US",
   },
   "pt-BR": {
-    title: "GetMedia — Baixar vídeos e áudios",
+    title: "GetMedia — Baixar vídeos e áudios grátis para Windows",
     description:
-      "GetMedia é um downloader gratuito e de código aberto de vídeos e áudios para Windows, baseado em yt-dlp e FFmpeg.",
+      "GetMedia é um downloader gratuito e de código aberto de vídeos e áudios para Windows, baseado em yt-dlp e FFmpeg. Baixe do YouTube e outros sites.",
     ogLocale: "pt_BR",
   },
   es: {
-    title: "GetMedia — Descarga vídeos y audio",
+    title: "GetMedia — Descarga vídeos y audio gratis para Windows",
     description:
-      "GetMedia es un descargador gratuito y de código abierto de vídeos y audio para Windows, basado en yt-dlp y FFmpeg.",
+      "GetMedia es un descargador gratuito y de código abierto de vídeos y audio para Windows, basado en yt-dlp y FFmpeg. Descarga de YouTube y otros sitios.",
     ogLocale: "es_ES",
   },
+};
+
+const LANGUAGE_ALTERNATES: Record<string, string> = {
+  ...Object.fromEntries(SUPPORTED_LANGUAGES.map((language) => [language, `/${language}`])),
+  "x-default": `/${SUPPORTED_LANGUAGES[0]}`,
 };
 
 export function generateStaticParams() {
@@ -67,6 +73,7 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `/${lang}`,
+      languages: LANGUAGE_ALTERNATES,
     },
     openGraph: {
       title,
@@ -100,6 +107,30 @@ export default async function LanguageLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: APP_INFO.name,
+              description: metadataByLanguage[language].description,
+              url: `${SITE_URL}/${language}`,
+              applicationCategory: "UtilitiesApplication",
+              operatingSystem: "Windows",
+              author: {
+                "@type": "Person",
+                name: APP_INFO.author,
+              },
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+              downloadUrl: "https://github.com/ThiagoHDMiranda/GetMedia_Desktop/releases/latest",
+            }),
+          }}
+        />
         <I18nProvider language={language}>{children}</I18nProvider>
       </body>
     </html>

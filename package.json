@@ -8,6 +8,9 @@
     "email": "thiagohdmiranda77@gmail.com"
   },
   "license": "MIT",
+  "build": {
+    "productName": "GetMedia"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
