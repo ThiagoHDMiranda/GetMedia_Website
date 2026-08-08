@@ -85,7 +85,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
 
           {/* Description */}
           {APP_INFO.description && (
-            <p className="text-sm text-[var(--text-secondary)] text-center leading-relaxed">
+            <p className="text-sm text-[var(--text-secondary)] text-center leading-relaxed whitespace-pre-line">
               {t("about.description")}
             </p>
           )}

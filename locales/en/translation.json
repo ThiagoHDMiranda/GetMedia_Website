@@ -27,7 +27,7 @@
   "about": {
     "title": "About",
     "closeAria": "Close about",
-    "description": "Download videos and audio from YouTube and other sites — fast, free, and hassle-free.",
+    "description": "Download videos and audio from YouTube and other sites.\nFast, free, and hassle-free.",
     "author": "Author",
     "license": "License",
     "repo": "GitHub Repository",
@@ -69,6 +69,84 @@
     "q6": {
       "question": "Does GetMedia work on Mac or Linux?",
       "answer": "Not yet. GetMedia is currently Windows-only, but other platforms may be supported in the future."
+    }
+  },
+  "legal": {
+    "backHome": "Back to home",
+    "privacy": {
+      "title": "Privacy Policy",
+      "metaDescription": "GetMedia's privacy policy: minimal data collection, anonymous Google Analytics on the website and local-only processing in the desktop app.",
+      "sections": [
+        {
+          "heading": "Overview",
+          "paragraphs": [
+            "GetMedia is a free, open-source desktop application for Windows that lets you download videos and audio from supported sites. Your privacy matters to us: we collect as little data as possible, and the app itself never sends your data anywhere.",
+            "This policy explains what data is processed when you use this website and the GetMedia app."
+          ]
+        },
+        {
+          "heading": "Data processed by this website",
+          "paragraphs": [
+            "This website uses Google Analytics to measure anonymous, aggregated usage — such as pages visited, approximate region and device type. There is no account system and no personal data (like your name or e-mail) is collected.",
+            "When you change the language in the settings, a small cookie stores your preference so the site opens in that language on your next visit."
+          ]
+        },
+        {
+          "heading": "Data processed by the app",
+          "paragraphs": [
+            "The GetMedia app runs entirely on your computer. Videos and audio are downloaded locally using the bundled yt-dlp and ffmpeg, and your download history and settings are stored on your device only.",
+            "The app does not send your download history, the URLs you download, or any other personal information to us or to third parties."
+          ]
+        },
+        {
+          "heading": "Third-party services",
+          "paragraphs": [
+            "The app is distributed through GitHub Releases and this website is hosted on Vercel; those services have their own privacy policies. The download button checks the latest release through the GitHub API."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "metaDescription": "Terms of use for the GetMedia website and desktop application: MIT license, responsible use and limitation of liability.",
+      "sections": [
+        {
+          "heading": "Agreement to terms",
+          "paragraphs": [
+            "By using this website, or by downloading and using the GetMedia application, you agree to these terms of use."
+          ]
+        },
+        {
+          "heading": "License",
+          "paragraphs": [
+            "GetMedia is free, open-source software released under the MIT License. You may use, modify and redistribute it in accordance with that license."
+          ]
+        },
+        {
+          "heading": "Responsible use",
+          "paragraphs": [
+            "GetMedia is a tool for downloading publicly available media. You are responsible for using it lawfully: only download content you have the right to, and respect the copyright and terms of service of the sites you download from (such as YouTube's Terms of Service)."
+          ]
+        },
+        {
+          "heading": "Disclaimer of warranties",
+          "paragraphs": [
+            "GetMedia is provided \"as is\", without warranties of any kind. Support for sites depends on the yt-dlp project and may change at any time; we cannot guarantee the app works with every site or format."
+          ]
+        },
+        {
+          "heading": "Limitation of liability",
+          "paragraphs": [
+            "To the maximum extent permitted by law, the GetMedia author shall not be liable for any damages arising from the use of the software or of this website."
+          ]
+        },
+        {
+          "heading": "Changes to these terms",
+          "paragraphs": [
+            "We may update these terms from time to time. Continued use of the app or website after changes means you accept the updated terms."
+          ]
+        }
+      ]
     }
   }
 }

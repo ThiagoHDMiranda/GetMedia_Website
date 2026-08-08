@@ -27,7 +27,7 @@
   "about": {
     "title": "Sobre",
     "closeAria": "Fechar sobre",
-    "description": "Baixe vídeos e áudios do YouTube e outros sites — rápido, gratuito e sem complicação.",
+    "description": "Baixe vídeos e áudios do YouTube e outros sites.\nRápido, gratuito e sem complicação.",
     "author": "Autor",
     "license": "Licença",
     "repo": "Repositório GitHub",
@@ -69,6 +69,84 @@
     "q6": {
       "question": "O GetMedia funciona no Mac ou Linux?",
       "answer": "Ainda não. Por enquanto o GetMedia é exclusivo para Windows, mas o suporte a outras plataformas pode chegar no futuro."
+    }
+  },
+  "legal": {
+    "backHome": "Voltar ao início",
+    "privacy": {
+      "title": "Política de Privacidade",
+      "metaDescription": "Política de privacidade do GetMedia: coleta mínima de dados, Google Analytics anônimo no site e processamento exclusivamente local no aplicativo.",
+      "sections": [
+        {
+          "heading": "Visão geral",
+          "paragraphs": [
+            "O GetMedia é um aplicativo gratuito e de código aberto para Windows que permite baixar vídeos e áudios de sites compatíveis. Sua privacidade é importante para nós: coletamos o mínimo de dados possível e o próprio aplicativo nunca envia seus dados para lugar nenhum.",
+            "Esta política explica quais dados são processados quando você usa este site e o aplicativo GetMedia."
+          ]
+        },
+        {
+          "heading": "Dados processados por este site",
+          "paragraphs": [
+            "Este site usa o Google Analytics para medir o uso anônimo e agregado — como páginas visitadas, região aproximada e tipo de dispositivo. Não há sistema de contas e nenhum dado pessoal (como seu nome ou e-mail) é coletado.",
+            "Quando você troca o idioma nas configurações, um pequeno cookie guarda sua preferência para que o site abra naquele idioma na sua próxima visita."
+          ]
+        },
+        {
+          "heading": "Dados processados pelo aplicativo",
+          "paragraphs": [
+            "O aplicativo GetMedia roda inteiramente no seu computador. Os vídeos e áudios são baixados localmente usando o yt-dlp e o ffmpeg inclusos, e o seu histórico de downloads e configurações ficam apenas no seu dispositivo.",
+            "O aplicativo não envia seu histórico de downloads, nem as URLs que você baixou, nem qualquer outra informação pessoal para nós ou terceiros."
+          ]
+        },
+        {
+          "heading": "Serviços de terceiros",
+          "paragraphs": [
+            "O aplicativo é distribuído pelo GitHub Releases e este site é hospedado na Vercel; esses serviços possuem políticas de privacidade próprias. O botão de download consulta a versão mais recente através da API do GitHub."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Termos de Uso",
+      "metaDescription": "Termos de uso do site e do aplicativo GetMedia: licença MIT, uso responsável e limitação de responsabilidade.",
+      "sections": [
+        {
+          "heading": "Aceitação dos termos",
+          "paragraphs": [
+            "Ao usar este site, ou ao baixar e usar o aplicativo GetMedia, você concorda com estes termos de uso."
+          ]
+        },
+        {
+          "heading": "Licença",
+          "paragraphs": [
+            "O GetMedia é um software livre e de código aberto, distribuído sob a Licença MIT. Você pode usá-lo, modificá-lo e redistribuí-lo de acordo com essa licença."
+          ]
+        },
+        {
+          "heading": "Uso responsável",
+          "paragraphs": [
+            "O GetMedia é uma ferramenta para baixar mídias disponíveis publicamente. Você é responsável por usá-lo de forma legal: baixe apenas conteúdos aos quais você tem direito e respeite os direitos autorais e os termos de serviço dos sites em que realiza downloads (como os Termos de Serviço do YouTube)."
+          ]
+        },
+        {
+          "heading": "Isenção de garantias",
+          "paragraphs": [
+            "O GetMedia é fornecido \"como está\", sem garantias de qualquer tipo. O suporte a sites depende do projeto yt-dlp e pode mudar a qualquer momento; não podemos garantir o funcionamento com todos os sites ou formatos."
+          ]
+        },
+        {
+          "heading": "Limitação de responsabilidade",
+          "paragraphs": [
+            "Na máxima extensão permitida por lei, o autor do GetMedia não será responsável por danos decorrentes do uso do software ou deste site."
+          ]
+        },
+        {
+          "heading": "Alterações nestes termos",
+          "paragraphs": [
+            "Podemos atualizar estes termos periodicamente. O uso contínuo do aplicativo ou do site após alterações significa que você aceita os termos atualizados."
+          ]
+        }
+      ]
     }
   }
 }
