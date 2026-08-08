@@ -17,6 +17,7 @@ export function NotFound() {
       <div className="w-full max-w-lg space-y-6 text-center animate-fade-in">
         <Image
           alt="GetMedia Logo"
+          title="GetMedia Logo"
           src="/getmedia_icon_512x512.png"
           className="w-auto h-16 mx-auto"
           width={64}

@@ -65,6 +65,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
           <div className="w-full place-self-center flex items-center justify-center gap-2 mb-3">
             <Image
               alt="GetMedia Logo"
+              title="GetMedia Logo"
               src="/getmedia_icon_512x512.png"
               className="w-auto h-10"
               width={40}
@@ -73,6 +74,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
             />
             <Image
               alt="GetMedia Icon"
+              title="GetMedia Icon"
               src="/getmedia.png"
               className="w-auto h-10"
               width={205}
