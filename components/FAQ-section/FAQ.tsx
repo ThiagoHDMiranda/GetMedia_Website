@@ -36,7 +36,7 @@ function FaqCard({ question, answer }: { question: string; answer: string }) {
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span>{question}</span>
+        <h3>{question}</h3>
         <span
           className={`transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
