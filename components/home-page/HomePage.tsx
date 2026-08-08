@@ -1,16 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useTranslation } from "react-i18next";
 import { Settings, Info } from "lucide-react";
 import { HeroSection } from "@/components/hero-section/HeroSection";
 import { DownloadSection } from "@/components/download-section/DownloadSection";
 import { Footer } from "@/components/footer/Footer";
-import { SettingsModal } from "@/components/settings-modal/SettingsModal";
-import { AboutModal } from "@/components/about-modal/AboutModal";
 import { ToastNotification } from "@/components/toast-notification/ToastNotification";
 import Image from "next/image";
 import { FrequentlyAskedQuestions } from "../FAQ-section/FAQ";
+
+const SettingsModal = dynamic(
+  () =>
+    import("@/components/settings-modal/SettingsModal").then(
+      (mod) => mod.SettingsModal,
+    ),
+  { ssr: false },
+);
+const AboutModal = dynamic(
+  () =>
+    import("@/components/about-modal/AboutModal").then(
+      (mod) => mod.AboutModal,
+    ),
+  { ssr: false },
+);
 
 export function HomePage() {
   const { t } = useTranslation();

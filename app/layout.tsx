@@ -1,8 +1,10 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 import { DocumentLanguage } from "@/components/document-language/DocumentLanguage";
+
+const GA_ID = "G-W60LR2SKXX";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +31,30 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <DocumentLanguage />
         {children}
-        <GoogleAnalytics gaId="G-W60LR2SKXX" />
+        {/*
+         * GA4 loaded on browser idle (lazyOnload) instead of right after
+         * hydration: analytics doesn't need to run before the page is
+         * interactive, so it no longer competes for the main thread during
+         * the load/INP window. Same init behavior as @next/third-parties'
+         * GoogleAnalytics component, but with a deferred strategy.
+         */}
+        <Script
+          id="_next-ga-init"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+          window['dataLayer'] = window['dataLayer'] || [];
+          function gtag(){window['dataLayer'].push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${GA_ID}');`,
+          }}
+        />
+        <Script
+          id="_next-ga"
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        />
       </body>
     </html>
   );

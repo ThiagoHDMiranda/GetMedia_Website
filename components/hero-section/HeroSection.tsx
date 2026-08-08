@@ -26,17 +26,45 @@ export function HeroSection() {
      * The element starts with the first site pre-written (see the JSX below),
      * so typed.js reads the existing content, begins by erasing it and then
      * types/erases the remaining sites in an infinite loop.
+     *
+     * Starting the animation is deferred until the browser is idle (or after
+     * a 2s timeout) so the initial load/interaction window isn't affected by
+     * continuous main-thread DOM work — the pre-written text is already in the
+     * HTML.
      */
-    const typed = new Typed(elementRef.current, {
-      strings: TYPED_ANCHORS.slice(1),
-      typeSpeed: 60,
-      backSpeed: 40,
-      loop: true,
-      loopCount: Infinity,
-      smartBackspace: true,
-      cursorChar: "_",
-    });
-    return () => typed.destroy();
+    let typed: Typed | null = null;
+    let idleId: number | null = null;
+    let timeoutId: number | null = null;
+
+    const start = () => {
+      if (!elementRef.current || typed) return;
+      typed = new Typed(elementRef.current, {
+        strings: TYPED_ANCHORS.slice(1),
+        typeSpeed: 60,
+        backSpeed: 40,
+        loop: true,
+        loopCount: Infinity,
+        smartBackspace: true,
+        cursorChar: "_",
+      });
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+      idleId = window.requestIdleCallback(start, { timeout: 2000 });
+    } else {
+      timeoutId = window.setTimeout(start, 1000);
+    }
+
+    return () => {
+      if (idleId !== null && typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId);
+      }
+      typed?.destroy();
+      typed = null;
+    };
   }, []);
 
   return (
