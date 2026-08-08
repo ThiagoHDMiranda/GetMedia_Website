@@ -38,5 +38,10 @@
     "error": "Erro",
     "success": "Sucesso",
     "warn": "Aviso"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "message": "Não conseguimos encontrar a página que você procura, ela não existe ou foi movida.",
+    "back": "Voltar para o início"
   }
 }

@@ -1,21 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { notFound } from "next/navigation";
 import { SUPPORTED_LANGUAGES, isSupportedLanguage } from "@/i18n/languages";
 import { getSiteUrl } from "@/lib/site-url";
 import { APP_INFO } from "@/lib/app-info";
 import { I18nProvider } from "@/components/i18n-provider/I18nProvider";
-import "../globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const SITE_URL = getSiteUrl();
 
@@ -60,6 +47,12 @@ export function generateStaticParams() {
   return SUPPORTED_LANGUAGES.map((language) => ({ language }));
 }
 
+// Only the supported languages are valid routes. Anything else (e.g. "/foo")
+// is rejected at the routing level and renders the custom root not-found page
+// server-side, instead of matching this dynamic segment and falling back to
+// Next's default "__next_error__" shell when the page throws notFound().
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: LanguageLayoutProps): Promise<Metadata> {
@@ -96,43 +89,58 @@ export default async function LanguageLayout({
   params,
 }: LanguageLayoutProps) {
   const { language } = await params;
+  const lang = isSupportedLanguage(language) ? language : "en";
 
-  if (!isSupportedLanguage(language)) {
-    notFound();
-  }
+  // NOTE: unsupported languages are handled by the page, which throws
+  // notFound() — with the static root app/layout.tsx owning <html>/<body>,
+  // that boundary now renders the custom not-found UI server-side instead of
+  // falling back to Next's default "__next_error__" shell.
 
   return (
-    <html
-      lang={language}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: APP_INFO.name,
-              description: metadataByLanguage[language].description,
-              url: `${SITE_URL}/${language}`,
-              applicationCategory: "UtilitiesApplication",
-              operatingSystem: "Windows",
-              author: {
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "SoftwareApplication",
+                name: APP_INFO.name,
+                description: metadataByLanguage[lang].description,
+                url: `${SITE_URL}/${lang}`,
+                applicationCategory: "UtilitiesApplication",
+                operatingSystem: "Windows",
+                author: { "@id": `${SITE_URL}/#person` },
+                publisher: { "@id": `${SITE_URL}/#organization` },
+                offers: {
+                  "@type": "Offer",
+                  price: "0",
+                  priceCurrency: "USD",
+                },
+                downloadUrl: "https://github.com/ThiagoHDMiranda/GetMedia_Desktop/releases/latest",
+              },
+              {
+                "@type": "Organization",
+                "@id": `${SITE_URL}/#organization`,
+                name: APP_INFO.name,
+                url: SITE_URL,
+                logo: `${SITE_URL}/getmedia_icon_512x512.png`,
+                sameAs: ["https://github.com/ThiagoHDMiranda/GetMedia_Desktop"],
+              },
+              {
                 "@type": "Person",
+                "@id": `${SITE_URL}/#person`,
                 name: APP_INFO.author,
+                email: APP_INFO.authorEmail,
+                url: "https://github.com/ThiagoHDMiranda",
+                sameAs: ["https://github.com/ThiagoHDMiranda"],
               },
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
-              },
-              downloadUrl: "https://github.com/ThiagoHDMiranda/GetMedia_Desktop/releases/latest",
-            }),
-          }}
-        />
-        <I18nProvider language={language}>{children}</I18nProvider>
-      </body>
-    </html>
+            ],
+          }),
+        }}
+      />
+      <I18nProvider language={language}>{children}</I18nProvider>
+    </>
   );
 }
