@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
-import { X, Globe, Sun, Moon,  SunMoon } from "lucide-react";
+import { X, Globe, Sun, Moon, SunMoon } from "lucide-react";
 import { SUPPORTED_LANGUAGES } from "@/i18n";
 import { useTheme, SUPPORTED_THEMES, type Theme } from "@/hooks/useTheme";
-
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -40,7 +39,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
 
   if (!isOpen) return null;
 
-const handleLanguageChange = (lang: string) => {
+  const handleLanguageChange = (lang: string) => {
     setSelectedLang(lang);
     // Instances are cached per language and immutable — never mutate them
     // here (it would desync other visits to that route). Translation switches
@@ -70,10 +69,7 @@ const handleLanguageChange = (lang: string) => {
       />
 
       {/* Modal panel */}
-      <div
-        className="relative w-full max-w-lg rounded-2xl shadow-2xl animate-slide-up border border-surface-border bg-surface-card backdrop-blur-xl"
-        style={{ backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)" }}
-      >
+      <div className="relative w-full max-w-lg rounded-2xl shadow-2xl animate-slide-up border border-surface-border bg-surface-card backdrop-blur-xl">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-surface-border">
           <h2 className="text-lg font-bold text-[var(--text-primary)]">
@@ -101,7 +97,10 @@ const handleLanguageChange = (lang: string) => {
               {SUPPORTED_THEMES.map((th) => {
                 const active = theme === th;
                 const Icon = th === "dark" ? Moon : Sun;
-                const label = th === "dark" ? t("settings.themeDark") : t("settings.themeLight");
+                const label =
+                  th === "dark"
+                    ? t("settings.themeDark")
+                    : t("settings.themeLight");
                 return (
                   <button
                     key={th}
@@ -147,7 +146,6 @@ const handleLanguageChange = (lang: string) => {
               ))}
             </div>
           </div>
-          
         </div>
       </div>
     </div>

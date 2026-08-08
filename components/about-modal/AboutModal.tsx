@@ -36,13 +36,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
       />
 
       {/* Modal panel */}
-      <div
-        className="relative w-full max-w-md rounded-2xl shadow-2xl animate-slide-up border border-surface-border bg-surface-card backdrop-blur-xl"
-        style={{
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-        }}
-      >
+      <div className="relative w-full max-w-md rounded-2xl shadow-2xl animate-slide-up border border-surface-border bg-surface-card backdrop-blur-xl">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-surface-border">
           <h2 className="flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
@@ -128,7 +122,9 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
               href="https://github.com/ThiagoHDMiranda/GetMedia_Desktop"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent("github_repo_click", { source: "about_modal" })}
+              onClick={() =>
+                trackEvent("github_repo_click", { source: "about_modal" })
+              }
               className="flex items-center gap-3 px-4 py-3 rounded-xl border border-surface-border bg-surface-muted hover:border-brand-400/40 hover:bg-glassHover transition-colors group"
             >
               <svg

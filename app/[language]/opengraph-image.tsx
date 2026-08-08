@@ -58,11 +58,8 @@ export default async function Image({
       <div
         style={{
           position: "absolute",
-          // top: -200,
-          // left: "50%",
           width: "100%",
           height: "100%",
-          // borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(0,94,206,0.45) 10%, rgba(0,94,206,0.0) 70%)",
         }}
@@ -78,7 +75,6 @@ export default async function Image({
       <img
         src={logoSrc}
         alt="GetMedia logo"
-        // width={}
         height={120}
         style={{ borderRadius: 28 }}
       />
