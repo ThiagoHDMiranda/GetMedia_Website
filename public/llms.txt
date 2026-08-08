@@ -1,0 +1,20 @@
+# GetMedia
+
+> GetMedia is a free, open-source Windows desktop app to download videos and audio from YouTube and other sites, powered by yt-dlp and ffmpeg.
+
+## Official links
+
+- Website: https://getmedia-app.vercel.app
+- English: https://getmedia-app.vercel.app/en
+- Português (Brazil): https://getmedia-app.vercel.app/pt-BR
+- Español: https://getmedia-app.vercel.app/es
+- Latest release (direct .exe download): https://github.com/ThiagoHDMiranda/GetMedia_Desktop/releases/latest
+- GitHub repository (desktop app): https://github.com/ThiagoHDMiranda/GetMedia_Desktop
+- GitHub organization/author: https://github.com/ThiagoHDMiranda
+
+## Key facts
+
+- Platform: Windows only (installer is a single .exe)
+- License: MIT
+- Download libs: yt-dlp (https://github.com/yt-dlp/yt-dlp) and ffmpeg (https://ffmpeg.org)
+- Supports YouTube and other sites supported by yt-dlp
