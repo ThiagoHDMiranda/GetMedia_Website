@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Download } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const REPO_URL = "https://github.com/ThiagoHDMiranda/GetMedia_Desktop";
 const RELEASES_LATEST_URL = `${REPO_URL}/releases/latest`;
@@ -131,6 +132,12 @@ export function DownloadSection() {
           href={release?.url ?? RELEASES_LATEST_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent("download_click", {
+              version: release?.version ?? null,
+              target: release?.url ? "direct_asset" : "releases_page",
+            })
+          }
           className="inline-flex items-center justify-center gap-2 rounded-xl px-8 py-3 text-base font-semibold
             bg-gradient-to-r from-brand-600 to-brand-500
             hover:from-brand-500 hover:to-brand-400

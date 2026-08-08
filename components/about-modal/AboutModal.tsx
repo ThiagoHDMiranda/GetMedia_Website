@@ -1,6 +1,7 @@
 import { X, Info, Scale, UserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { APP_INFO } from "@/lib/app-info";
+import { trackEvent } from "@/lib/analytics";
 import Image from "next/image";
 
 interface AboutModalProps {
@@ -125,6 +126,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
               href="https://github.com/ThiagoHDMiranda/GetMedia_Desktop"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("github_repo_click", { source: "about_modal" })}
               className="flex items-center gap-3 px-4 py-3 rounded-xl border border-surface-border bg-surface-muted hover:border-brand-400/40 hover:bg-glassHover transition-colors group"
             >
               <svg
