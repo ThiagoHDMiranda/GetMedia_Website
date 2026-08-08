@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
@@ -9,6 +9,12 @@ const HERO_LINKS = [
   { href: "https://www.instagram.com/", label: "Instagram" },
   { href: "https://www.tiktok.com/", label: "TikTok" },
 ];
+const TYPED_ANCHORS = HERO_LINKS.map(
+  (link) =>
+    `<a href="${link.href}" target="_blank" rel="noopener noreferrer"
+        class="text-gradient hover:opacity-80 transition-opacity"
+     >${link.label}</a>`,
+);
 
 export function HeroSection() {
   const { t } = useTranslation();
@@ -16,13 +22,13 @@ export function HeroSection() {
 
   useEffect(() => {
     if (!elementRef.current) return;
+    /*
+     * The element starts with the first site pre-written (see the JSX below),
+     * so typed.js reads the existing content, begins by erasing it and then
+     * types/erases the remaining sites in an infinite loop.
+     */
     const typed = new Typed(elementRef.current, {
-      strings: HERO_LINKS.map(
-        (link) =>
-          `<a href="${link.href}" target="_blank" rel="noopener noreferrer"
-              class="text-gradient hover:opacity-80 transition-opacity"
-           >${link.label}</a>`
-      ),
+      strings: TYPED_ANCHORS.slice(1),
       typeSpeed: 60,
       backSpeed: 40,
       loop: true,
@@ -34,23 +40,31 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="text-center space-y-6 pt-8 animate-fade-in" aria-label={t("hero.titleLine1")}>
+    <section
+      className="text-center space-y-6 pt-8 animate-fade-in"
+      aria-label={t("hero.titleLine1")}
+    >
       <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-        <span className="text-[var(--text-primary)]">{t("hero.titleLine1")}</span>
+        <span className="text-[var(--text-primary)]">
+          {t("hero.titleLine1")}
+        </span>
         <br />
         <span className="text-gradient">{t("hero.titleLine2")}</span>
       </h1>
-      <div className="text-base sm:text-lg text-[var(--text-secondary)] max-w-full mx-auto leading-relaxed" >
-      <p >
-        {t("hero.subtitleSupport")}{" "}
-        <strong className="text-[var(--text-primary)]">
-          <span ref={elementRef} />
-        </strong>{" "}
-        {t("hero.subtitleOthers")}
-      </p>
-      <p >
-        {t("hero.subtitleQuality")}
-      </p>
+      <div className="text-base sm:text-lg text-[var(--text-secondary)] max-w-full mx-auto leading-relaxed">
+        <p>
+          {t("hero.subtitleSupport")}{" "}
+          <strong className="text-[var(--text-primary)]">
+            <span
+              ref={elementRef}
+              dangerouslySetInnerHTML={{
+                __html: TYPED_ANCHORS[0],
+              }}
+            />
+          </strong>{" "}
+          {t("hero.subtitleOthers")}
+        </p>
+        <p>{t("hero.subtitleQuality")}</p>
       </div>
       <div className="flex items-center justify-center gap-8 pt-2">
         {[
@@ -60,7 +74,9 @@ export function HeroSection() {
         ].map((stat) => (
           <div key={stat.label} className="text-center">
             <p className="text-2xl font-bold text-gradient">{stat.value}</p>
-            <p className="text-xs text-[var(--text-secondary)] mt-0.5">{stat.label}</p>
+            <p className="text-xs text-[var(--text-secondary)] mt-0.5">
+              {stat.label}
+            </p>
           </div>
         ))}
       </div>
