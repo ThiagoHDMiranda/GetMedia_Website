@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 import { DocumentLanguage } from "@/components/document-language/DocumentLanguage";
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <DocumentLanguage />
         {children}
+        <GoogleAnalytics gaId="G-W60LR2SKXX" />
       </body>
     </html>
   );
