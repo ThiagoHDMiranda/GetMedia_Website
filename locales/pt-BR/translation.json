@@ -43,5 +43,32 @@
     "title": "Página não encontrada",
     "message": "Não conseguimos encontrar a página que você procura, ela não existe ou foi movida.",
     "back": "Voltar para o início"
+  },
+  "faq": {
+    "title": "Perguntas Frequentes",
+    "q1": {
+      "question": "O que é o GetMedia?",
+      "answer": "O GetMedia é um aplicativo gratuito para Windows que permite baixar vídeos e áudios do YouTube, Instagram, TikTok e outros sites, desenvolvido com yt-dlp."
+    },
+    "q2": {
+      "question": "O GetMedia é realmente gratuito?",
+      "answer": "Sim! O GetMedia é 100% gratuito e de código aberto (licença MIT). Sem assinaturas, testes ou custos ocultos."
+    },
+    "q3": {
+      "question": "Quais sites são suportados?",
+      "answer": "O GetMedia suporta YouTube, Instagram, TikTok e todos os outros sites suportados pelo yt-dlp."
+    },
+    "q4": {
+      "question": "Quais formatos e qualidades posso baixar?",
+      "answer": "Você pode baixar vídeo ou áudio no formato de sua escolha, na máxima qualidade que o site de origem oferecer."
+    },
+    "q5": {
+      "question": "Como instalo o GetMedia?",
+      "answer": "Clique no botão Baixar, execute o instalador .exe e siga os passos. Nenhuma dependência extra é necessária — yt-dlp e ffmpeg já estão inclusos."
+    },
+    "q6": {
+      "question": "O GetMedia funciona no Mac ou Linux?",
+      "answer": "Ainda não. Por enquanto o GetMedia é exclusivo para Windows, mas o suporte a outras plataformas pode chegar no futuro."
+    }
   }
 }

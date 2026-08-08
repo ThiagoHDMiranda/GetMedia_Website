@@ -10,6 +10,7 @@ import { SettingsModal } from "@/components/settings-modal/SettingsModal";
 import { AboutModal } from "@/components/about-modal/AboutModal";
 import { ToastNotification } from "@/components/toast-notification/ToastNotification";
 import Image from "next/image";
+import { FrequentlyAskedQuestions } from "../FAQ-section/FAQ";
 
 export function HomePage() {
   const { t } = useTranslation();
@@ -79,6 +80,7 @@ export function HomePage() {
         </div>
         <HeroSection />
         <DownloadSection />
+        <FrequentlyAskedQuestions />
         <Footer />
       </div>
       {/* Settings modal */}
