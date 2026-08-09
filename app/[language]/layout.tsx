@@ -21,25 +21,27 @@ const metadataByLanguage: Record<string, LanguageMetadata> = {
   en: {
     title: "GetMedia — Download videos and audio for Windows for free",
     description:
-      "GetMedia is a free and open-source video and audio downloader for Windows, built on yt-dlp and FFmpeg. Download videos and audio from YouTube and other sites.",
+      "GetMedia is a free and open-source video and audio downloader for Windows, built on yt-dlp and FFmpeg.",
     ogLocale: "en_US",
   },
   "pt-BR": {
     title: "GetMedia — Baixar vídeos e áudios grátis para Windows",
     description:
-      "GetMedia é um downloader gratuito e de código aberto de vídeos e áudios para Windows, baseado em yt-dlp e FFmpeg. Baixe do YouTube e outros sites.",
+      "GetMedia é um downloader gratuito e de código aberto de vídeos e áudios para Windows, baseado em yt-dlp e FFmpeg.",
     ogLocale: "pt_BR",
   },
   es: {
     title: "GetMedia — Descarga vídeos y audio gratis para Windows",
     description:
-      "GetMedia es un descargador gratuito y de código abierto de vídeos y audio para Windows, basado en yt-dlp y FFmpeg. Descarga de YouTube y otros sitios.",
+      "GetMedia es un descargador gratuito y de código abierto de vídeos y audio para Windows, basado en yt-dlp y FFmpeg.",
     ogLocale: "es_ES",
   },
 };
 
 const LANGUAGE_ALTERNATES: Record<string, string> = {
-  ...Object.fromEntries(SUPPORTED_LANGUAGES.map((language) => [language, `/${language}`])),
+  ...Object.fromEntries(
+    SUPPORTED_LANGUAGES.map((language) => [language, `/${language}`]),
+  ),
   "x-default": `/${SUPPORTED_LANGUAGES[0]}`,
 };
 
@@ -118,7 +120,8 @@ export default async function LanguageLayout({
                   price: "0",
                   priceCurrency: "USD",
                 },
-                downloadUrl: "https://github.com/ThiagoHDMiranda/GetMedia_Desktop/releases/latest",
+                downloadUrl:
+                  "https://github.com/ThiagoHDMiranda/GetMedia_Desktop/releases/latest",
               },
               {
                 "@type": "Organization",
