@@ -39,7 +39,7 @@ export function HeroSection() {
     const start = () => {
       if (!elementRef.current || typed) return;
       typed = new Typed(elementRef.current, {
-        strings: TYPED_ANCHORS.slice(1),
+        strings: TYPED_ANCHORS,
         typeSpeed: 60,
         backSpeed: 40,
         loop: true,
@@ -83,12 +83,7 @@ export function HeroSection() {
         <p>
           {t("hero.subtitleSupport")}{" "}
           <strong className="text-[var(--text-primary)]">
-            <span
-              ref={elementRef}
-              dangerouslySetInnerHTML={{
-                __html: TYPED_ANCHORS[0],
-              }}
-            />
+            <span ref={elementRef}></span>
           </strong>{" "}
           {t("hero.subtitleOthers")}
         </p>
