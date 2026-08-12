@@ -20,9 +20,7 @@ const SettingsModal = dynamic(
 );
 const AboutModal = dynamic(
   () =>
-    import("@/components/about-modal/AboutModal").then(
-      (mod) => mod.AboutModal,
-    ),
+    import("@/components/about-modal/AboutModal").then((mod) => mod.AboutModal),
   { ssr: false },
 );
 
@@ -47,7 +45,7 @@ export function HomePage() {
         <Image
           alt="GetMedia Logo"
           title="GetMedia Logo"
-          src="/getmedia_icon_512x512.png"
+          src="/getmedia_icon_80x80.png"
           className="w-auto h-10"
           width={40}
           height={40}
@@ -55,7 +53,7 @@ export function HomePage() {
         <Image
           alt="GetMedia Icon"
           title="GetMedia Icon"
-          src="/getmedia.png"
+          src="/getmedia_413x80.png"
           className="w-auto h-10"
           width={205}
           height={40}

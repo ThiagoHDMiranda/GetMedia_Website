@@ -18,7 +18,7 @@ export function NotFound() {
         <Image
           alt="GetMedia Logo"
           title="GetMedia Logo"
-          src="/getmedia_icon_512x512.png"
+          src="/getmedia_icon_80x80.png"
           className="w-auto h-16 mx-auto"
           width={64}
           height={64}

@@ -46,7 +46,7 @@ export function LegalPage({ type }: LegalPageProps) {
             <Image
               alt="GetMedia Logo"
               title="GetMedia Logo"
-              src="/getmedia_icon_512x512.png"
+              src="/getmedia_icon_80x80.png"
               className="w-auto h-10"
               width={40}
               height={40}
@@ -54,7 +54,7 @@ export function LegalPage({ type }: LegalPageProps) {
             <Image
               alt="GetMedia Icon"
               title="GetMedia Icon"
-              src="/getmedia.png"
+              src="/getmedia_413x80.png"
               className="w-auto h-10"
               width={205}
               height={40}
