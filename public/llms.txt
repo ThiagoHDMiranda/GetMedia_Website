@@ -4,17 +4,17 @@
 
 ## Official links
 
-- Website: https://getmedia-app.vercel.app
-- English: https://getmedia-app.vercel.app/en
-- Português (Brazil): https://getmedia-app.vercel.app/pt-BR
-- Español: https://getmedia-app.vercel.app/es
-- Latest release (direct .exe download): https://github.com/ThiagoHDMiranda/GetMedia_Desktop/releases/latest
-- GitHub repository (desktop app): https://github.com/ThiagoHDMiranda/GetMedia_Desktop
-- GitHub organization/author: https://github.com/ThiagoHDMiranda
+- [Website](https://getmedia-app.vercel.app): GetMedia official homepage
+- [Website in English](https://getmedia-app.vercel.app/en): English version of the website
+- [Website in Portuguese](https://getmedia-app.vercel.app/pt-BR): Brazilian Portuguese version of the website
+- [Website in Spanish](https://getmedia-app.vercel.app/es): Spanish version of the website
+- [Latest release (.exe download)](https://github.com/ThiagoHDMiranda/GetMedia_Desktop/releases/latest): download the Windows installer
+- [GetMedia_Desktop repository](https://github.com/ThiagoHDMiranda/GetMedia_Desktop): source code of the desktop app
+- [Author on GitHub](https://github.com/ThiagoHDMiranda): Thiago Miranda's GitHub profile
 
 ## Key facts
 
 - Platform: Windows only (installer is a single .exe)
 - License: MIT
-- Download libs: yt-dlp (https://github.com/yt-dlp/yt-dlp) and ffmpeg (https://ffmpeg.org)
+- Download libs: [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [ffmpeg](https://ffmpeg.org)
 - Supports YouTube and other sites supported by yt-dlp
