@@ -40,7 +40,7 @@ export default function RootLayout({
          */}
         <Script
           id="_next-ga-init"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
           window['dataLayer'] = window['dataLayer'] || [];
@@ -52,7 +52,7 @@ export default function RootLayout({
         />
         <Script
           id="_next-ga"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
         />
       </body>
